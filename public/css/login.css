@@ -1,0 +1,216 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Arial', sans-serif;
+    transition: all 0.3s ease;
+}
+body {
+    background: #f5f5f5;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    color: #333;
+}
+body.dark-theme {
+    background: #121212;
+    color: #e0e0e0;
+}
+.container {
+    background: white;
+    padding: 2rem;
+    border-radius: 8px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 400px;
+    position: relative;
+}
+.dark-theme .container {
+    background: #1e1e1e;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
+}
+.header {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 2rem;
+}
+.header a {
+    text-decoration: none;
+    color: #0056b3;
+    font-weight: bold;
+}
+.dark-theme .header a {
+    color: #4d9eff;
+}
+.form-container h2 {
+    text-align: center;
+    margin-bottom: 1.5rem;
+    color: #0056b3;
+}
+.dark-theme .form-container h2 {
+    color: #4d9eff;
+}
+.form-group {
+    margin-bottom: 1.5rem;
+}
+.form-group label {
+    display: block;
+    margin-bottom: 0.5rem;
+    font-weight: bold;
+}
+.dark-theme .form-group label {
+    color: #e0e0e0;
+}
+.form-group input {
+    width: 100%;
+    padding: 0.8rem;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    font-size: 1rem;
+    background: white;
+    color: #333;
+}
+.dark-theme .form-group input {
+    background: #2a2a2a;
+    border-color: #444;
+    color: #e0e0e0;
+}
+.btn {
+    background: #0056b3;
+    color: white;
+    border: none;
+    padding: 0.8rem 1.5rem;
+    width: 100%;
+    border-radius: 4px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background 0.3s;
+    margin-bottom: 1rem;
+}
+.dark-theme .btn {
+    background: #4d9eff;
+}
+.btn:hover {
+    background: #003d82;
+}
+.dark-theme .btn:hover {
+    background: #3a7bc8;
+}
+.link {
+    text-align: center;
+    margin-top: 1rem;
+}
+.link a {
+    color: #0056b3;
+    text-decoration: none;
+}
+.dark-theme .link a {
+    color: #4d9eff;
+}
+.theme-switcher {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    background: none;
+    border: none;
+    font-size: 1.5rem;
+    cursor: pointer;
+    color: #0056b3;
+}
+.dark-theme .theme-switcher {
+    color: #4d9eff;
+}
+.form-container {
+    display: none;
+}
+.form-container.active {
+    display: block;
+}
+.error-message {
+    color: red;
+    margin-top: 1rem;
+    text-align: center;
+}
+
+/* Мобільна адаптація (до 768px) */
+@media (max-width: 768px) {
+    body {
+        padding: 1rem;
+        height: auto;
+        min-height: 100vh;
+        align-items: flex-start;
+    }
+
+    .container {
+        padding: 1.5rem;
+        max-width: 100%;
+        margin: 1rem 0;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+
+    .dark-theme .container {
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    }
+
+    .header {
+        flex-direction: column;
+        gap: 1rem;
+        margin-bottom: 1.5rem;
+    }
+
+    .form-container h2 {
+        font-size: 1.5rem;
+        margin-bottom: 1.2rem;
+    }
+
+    .form-group {
+        margin-bottom: 1.2rem;
+    }
+
+    .form-group input {
+        padding: 0.7rem;
+    }
+
+    .btn {
+        padding: 0.7rem;
+        font-size: 0.95rem;
+    }
+
+    .theme-switcher {
+        position: static;
+        margin-top: 1rem;
+        align-self: flex-end;
+    }
+}
+
+/* Додаткова оптимізація для дуже малих екранів (до 480px) */
+@media (max-width: 480px) {
+    .container {
+        padding: 1rem;
+    }
+
+    .form-container h2 {
+        font-size: 1.3rem;
+    }
+
+    .form-group input {
+        padding: 0.6rem;
+    }
+
+    .btn {
+        padding: 0.6rem;
+    }
+}
+
+/* Оптимізація для горизонтальної орієнтації на телефонах */
+@media (max-width: 768px) and (orientation: landscape) {
+    body {
+        padding: 0.5rem;
+    }
+
+    .container {
+        max-width: 90%;
+        padding: 1.2rem;
+    }
+}

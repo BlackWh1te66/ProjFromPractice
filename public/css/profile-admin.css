@@ -1,0 +1,798 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Arial', sans-serif;
+    transition: all 0.3s ease;
+}
+body {
+    line-height: 1.6;
+    color: #333;
+    background-color: #f5f5f5;
+}
+body.dark-theme {
+    background-color: #121212;
+    color: #e0e0e0;
+}
+
+/* header */
+header {
+    background: linear-gradient(135deg, #0056b3 0%, #003366 100%);
+    color: white;
+    padding: 0.8rem 0;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+.dark-theme header {
+    background: linear-gradient(135deg, #003366 0%, #001a33 100%);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+}
+.container {
+    width: 90%;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+.header-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.logo {
+    font-size: 1.8rem;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+.logo i {
+    color: #ffcc00;
+}
+nav ul {
+    display: flex;
+    list-style: none;
+    align-items: center;
+    gap: 1rem;
+}
+nav ul li a {
+    color: white;
+    text-decoration: none;
+    font-weight: 500;
+    padding: 0.5rem 1rem;
+    border-radius: 5px;
+    transition: all 0.3s;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+nav ul li a:hover {
+    color: #ffcc00;
+    background: rgba(255, 255, 255, 0.1);
+}
+nav ul li a i {
+    font-size: 0.9rem;
+}
+.theme-switcher {
+    background: rgba(255, 255, 255, 0.1);
+    border: none;
+    color: white;
+    cursor: pointer;
+    font-size: 1.2rem;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s;
+}
+.theme-switcher:hover {
+    background: rgba(255, 255, 255, 0.2);
+}
+.login-btn {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    background: transparent;
+    color: #ffcc00;
+    border: 2px solid #ffcc00;
+    border-radius: 50px;
+    padding: 0.5rem 1.2rem;
+    font-weight: 600;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    transition: all 0.3s;
+}
+.login-btn:hover {
+    background: rgba(255, 204, 0, 0.1);
+}
+.header-actions {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+/* admin-panel */
+.admin-panel {
+    padding: 2rem 0;
+}
+.admin-title {
+    text-align: center;
+    margin-bottom: 2rem;
+    font-size: 2rem;
+    color: #0056b3;
+}
+.dark-theme .admin-title {
+    color: #4d9eff;
+}
+.admin-tabs {
+    display: flex;
+    border-bottom: 1px solid #ddd;
+    margin-bottom: 2rem;
+}
+.dark-theme .admin-tabs {
+    border-bottom-color: #444;
+}
+.admin-tab {
+    padding: 0.8rem 1.5rem;
+    cursor: pointer;
+    font-weight: 500;
+    border-bottom: 3px solid transparent;
+    transition: all 0.3s;
+}
+.admin-tab.active {
+    border-bottom-color: #0056b3;
+    color: #0056b3;
+}
+.dark-theme .admin-tab.active {
+    border-bottom-color: #4d9eff;
+    color: #4d9eff;
+}
+.admin-tab:hover {
+    background: rgba(0, 86, 179, 0.1);
+}
+.dark-theme .admin-tab:hover {
+    background: rgba(77, 158, 255, 0.1);
+}
+.admin-content {
+    display: none;
+}
+.admin-content.active {
+    display: block;
+}
+
+/* admin-form */
+.admin-form {
+    background: white;
+    padding: 2rem;
+    border-radius: 8px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+    margin-bottom: 2rem;
+}
+.dark-theme .admin-form {
+    background: #1e1e1e;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
+}
+.form-group {
+    margin-bottom: 1.5rem;
+}
+.form-group label {
+    display: block;
+    margin-bottom: 0.5rem;
+    font-weight: bold;
+}
+.dark-theme .form-group label {
+    color: #e0e0e0;
+}
+.form-group input,
+.form-group textarea,
+.form-group select {
+    width: 100%;
+    padding: 0.8rem;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    font-size: 1rem;
+    background: white;
+    color: #333;
+}
+.dark-theme .form-group input,
+.dark-theme .form-group textarea,
+.dark-theme .form-group select {
+    background: #2a2a2a;
+    border-color: #444;
+    color: #e0e0e0;
+}
+.form-group textarea {
+    min-height: 120px;
+    resize: vertical;
+}
+.form-row {
+    display: flex;
+    gap: 1rem;
+}
+.form-row .form-group {
+    flex: 1;
+}
+.btn {
+    background: #0056b3;
+    color: white;
+    border: none;
+    padding: 0.8rem 1.5rem;
+    border-radius: 4px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+.dark-theme .btn {
+    background: #4d9eff;
+}
+.btn:hover {
+    background: #003d82;
+}
+.dark-theme .btn:hover {
+    background: #3a7bc8;
+}
+.btn-secondary {
+    background: #6c757d;
+}
+.btn-secondary:hover {
+    background: #5a6268;
+}
+.btn-danger {
+    background: #dc3545;
+}
+.btn-danger:hover {
+    background: #c82333;
+}
+
+/* Таблиці */
+.admin-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 2rem;
+    background: white;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.07);
+    table-layout: auto;
+    font-size: 1rem;
+}
+.dark-theme .admin-table {
+    background: #1e1e1e;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.18);
+}
+.admin-table th,
+.admin-table td {
+    padding: 0.75rem 0.7rem;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+    word-break: break-word;
+    vertical-align: top;
+    max-width: 180px;
+}
+.dark-theme .admin-table th,
+.dark-theme .admin-table td {
+    border-bottom-color: #444;
+}
+.admin-table th {
+    background: #f8f9fa;
+    font-weight: 600;
+    color: #0056b3;
+    position: sticky;
+    top: 0;
+    z-index: 2;
+}
+.dark-theme .admin-table th {
+    background: #232323;
+    color: #4d9eff;
+}
+.admin-table tr:hover {
+    background: rgba(0, 86, 179, 0.04);
+}
+.dark-theme .admin-table tr:hover {
+    background: rgba(77, 158, 255, 0.07);
+}
+.admin-table td {
+    background: inherit;
+    font-size: 0.98rem;
+}
+.admin-table th:last-child,
+.admin-table td:last-child,
+.admin-table th[style*="min-width"], .admin-table td[style*="min-width"] {
+    min-width: 140px;
+    text-align: center;
+}
+.admin-table td.table-actions {
+    min-width: 140px;
+    white-space: nowrap;
+}
+.admin-table td:nth-child(7) {
+    max-width: 140px;
+    overflow-wrap: break-word;
+}
+.table-actions {
+    display: flex;
+    gap: 0.5rem;
+    justify-content: center;
+    align-items: center;
+}
+.table-actions .btn {
+    padding: 0.4rem 0.8rem;
+    font-size: 0.95rem;
+    min-width: 80px;
+}
+
+/* Responsive table */
+@media (max-width: 900px) {
+    .admin-table th, .admin-table td {
+        font-size: 0.92rem;
+        padding: 0.5rem 0.4rem;
+        max-width: 120px;
+    }
+    .admin-table th, .admin-table td {
+        white-space: normal;
+    }
+}
+
+/* export-options */
+.export-options {
+    display: flex;
+    gap: 1rem;
+    margin-bottom: 1.5rem;
+}
+
+/* footer */
+footer {
+    background: #2c3e50;
+    color: white;
+    padding: 3rem 0 1rem;
+    text-align: center;
+    font-size: 0.95rem;
+}
+.dark-theme footer {
+    background: #1a1a1a;
+}
+.footer-content {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 2rem;
+    margin-bottom: 2rem;
+}
+.footer-section {
+    flex: 1;
+    min-width: 200px;
+    margin-bottom: 1.5rem;
+    text-align: left;
+}
+.footer-section h3 {
+    margin-bottom: 1.5rem;
+    font-size: 1.2rem;
+    color: #ffcc00;
+    position: relative;
+    padding-bottom: 0.5rem;
+}
+.footer-section h3::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 50px;
+    height: 2px;
+    background: #ffcc00;
+}
+.footer-section p, .footer-section li {
+    margin-bottom: 0.8rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+.footer-section i.fas, .footer-section i.far {
+    width: 20px;
+    color: #ffcc00;
+}
+.footer-section ul {
+    list-style: none;
+    padding: 0;
+}
+.footer-section ul li a {
+    color: #ddd;
+    text-decoration: none;
+    transition: color 0.3s;
+}
+.footer-section ul li a:hover {
+    color: #ffcc00;
+}
+.social-links {
+    display: flex;
+    gap: 1rem;
+    margin: 1.5rem 0;
+    justify-content: center;
+}
+.social-icon {
+    color: white;
+    background: #3a3a3a;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s;
+}
+.social-icon:hover {
+    transform: translateY(-3px);
+    color: white;
+}
+.social-icon:nth-child(1):hover { background: #E1306C; } /* Instagram */
+.social-icon:nth-child(2):hover { background: #3b5998; } /* Facebook */
+.social-icon:nth-child(3):hover { background: #ff0000; } /* YouTube */
+.social-icon:nth-child(4):hover { background: #000000; } /* TikTok */
+.copyright {
+    margin-top: 2rem;
+    padding-top: 1.5rem;
+    border-top: 1px solid rgba(255,255,255,0.1);
+    font-size: 0.9rem;
+    color: #aaa;
+}
+.profile-avatar-mini {
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-right: 0.5rem;
+    border: 2px solid #ffcc00;
+    background: #fff;
+}
+.profile-dropdown {
+    position: relative;
+    display: inline-block;
+}
+.profile-dropdown-menu {
+    display: none;
+    position: absolute;
+    right: 0;
+    top: 110%;
+    background: #fff;
+    min-width: 180px;
+    box-shadow: 0 8px 24px rgba(0,0,0,0.15);
+    border-radius: 8px;
+    z-index: 1000;
+    padding: 0.5rem 0;
+}
+.profile-dropdown-menu a,
+.profile-dropdown-menu button.logout-btn {
+    display: flex;
+    align-items: center;
+    gap: 0.7rem;
+    padding: 0.7rem 1.2rem;
+    color: #333;
+    background: none;
+    border: none;
+    width: 100%;
+    text-align: left;
+    font-size: 1rem;
+    cursor: pointer;
+    text-decoration: none;
+    transition: background 0.2s;
+}
+.profile-dropdown-menu a:hover,
+.profile-dropdown-menu button.logout-btn:hover {
+    background: #f5f5f5;
+}
+.profile-dropdown.open .profile-dropdown-menu {
+    display: block;
+}
+
+.dark-theme .profile-dropdown-menu {
+    background: #1e1e1e;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.6);
+}
+
+.dark-theme .profile-dropdown-menu a,
+.dark-theme .profile-dropdown-menu button.logout-btn {
+    color: #e0e0e0;
+}
+
+.dark-theme .profile-dropdown-menu a:hover,
+.dark-theme .profile-dropdown-menu button.logout-btn:hover {
+    background: #2c2c2c;
+}
+
+
+.profile-btn {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    background: #ffcc00;
+    color: #333;
+    border: none;
+    border-radius: 50px;
+    padding: 0.5rem 1.2rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s;
+}
+.profile-btn:hover {
+    background: #e6b800;
+}
+#feedbacks-content {
+    /* Можно добавить стили для лучшей видимости */
+    margin-top: 2rem;
+}
+
+/* Стили для кнопки/выпадающего списка изменения статуса заказа */
+.order-status-select {
+    padding: 0.5rem 1.2rem;
+    border-radius: 4px;
+    border: 2px solid #0056b3;
+    background: #f8f9fa;
+    color: #0056b3;
+    font-weight: 600;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: border-color 0.2s, background 0.2s, color 0.2s;
+    outline: none;
+    min-width: 120px;
+}
+.order-status-select:focus,
+.order-status-select:hover {
+    border-color: #003d82;
+    background: #e6f0ff;
+    color: #003d82;
+}
+.dark-theme .order-status-select {
+    background: #232323;
+    color: #4d9eff;
+    border-color: #4d9eff;
+}
+.dark-theme .order-status-select:focus,
+.dark-theme .order-status-select:hover {
+    background: #1e293b;
+    color: #fff;
+    border-color: #1e90ff;
+}
+
+/* --- Стили для вкладки "Категорії" --- */
+#categories-content {
+    background: #fff;
+    border-radius: 8px;
+    box-shadow: 0 0 20px rgba(0,0,0,0.07);
+    padding: 2rem 1.5rem 2.5rem 1.5rem;
+    margin-bottom: 2rem;
+}
+.dark-theme #categories-content {
+    background: #1e1e1e;
+    box-shadow: 0 0 20px rgba(0,0,0,0.18);
+}
+#categories-content h2 {
+    color: #0056b3;
+    margin-bottom: 1.2rem;
+    font-size: 1.3rem;
+    font-weight: 600;
+}
+.dark-theme #categories-content h2 {
+    color: #4d9eff;
+}
+#categories-content form {
+    display: flex;
+    gap: 1rem;
+    margin-bottom: 1.2rem;
+}
+#categories-content input[type="text"] {
+    flex: 1;
+    padding: 0.7rem 1rem;
+    border-radius: 4px;
+    border: 1px solid #ddd;
+    font-size: 1rem;
+    background: #fafafa;
+    color: #333;
+}
+.dark-theme #categories-content input[type="text"] {
+    background: #232323;
+    color: #e0e0e0;
+    border-color: #444;
+}
+#categories-content button.btn {
+    padding: 0.7rem 1.5rem;
+    font-size: 1rem;
+}
+#categories-content table.admin-table {
+    margin-bottom: 1.5rem;
+}
+#categories-content .admin-table th,
+#categories-content .admin-table td {
+    font-size: 1rem;
+    padding: 0.7rem 0.6rem;
+}
+#categories-content .admin-table th {
+    background: #f0f4fa;
+    color: #0056b3;
+}
+.dark-theme #categories-content .admin-table th {
+    background: #232323;
+    color: #4d9eff;
+}
+#categories-content .admin-table tr:hover {
+    background: rgba(0, 86, 179, 0.06);
+}
+.dark-theme #categories-content .admin-table tr:hover {
+    background: rgba(77, 158, 255, 0.09);
+}
+#categories-content .btn {
+    min-width: 90px;
+    padding: 0.5rem 1rem;
+    font-size: 0.98rem;
+}
+#categories-content .btn-danger {
+    margin-left: 0.5rem;
+}
+#categories-content input[type="text"]:focus {
+    border-color: #0056b3;
+    outline: none;
+}
+.dark-theme #categories-content input[type="text"]:focus {
+    border-color: #4d9eff;
+}
+#categories-content .cat-name input[type="text"] {
+    width: 90%;
+    padding: 0.5rem 0.7rem;
+    font-size: 1rem;
+    border-radius: 4px;
+    border: 1px solid #bbb;
+}
+.dark-theme #categories-content .cat-name input[type="text"] {
+    background: #232323;
+    color: #e0e0e0;
+    border-color: #444;
+}
+
+/* Мобільна адаптація (до 768px) */
+@media (max-width: 768px) {
+    /* Хедер */
+    .header-content {
+        flex-direction: column;
+        gap: 1rem;
+        padding: 0.5rem 0;
+    }
+    
+    nav ul {
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 0.5rem;
+    }
+    
+    .header-actions {
+        margin-top: 0.5rem;
+        width: 100%;
+        justify-content: center;
+    }
+    
+    /* Адмін панель */
+    .admin-tabs {
+        overflow-x: auto;
+        white-space: nowrap;
+        padding-bottom: 0.5rem;
+        -webkit-overflow-scrolling: touch;
+    }
+    
+    .admin-tab {
+        padding: 0.6rem 1rem;
+    }
+    
+    /* Таблиці - особлива увага */
+    .admin-table {
+        display: block;
+        width: 100%;
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
+    }
+    
+    .admin-table th,
+    .admin-table td {
+        min-width: 120px; /* Мінімальна ширина для комірок */
+        white-space: normal; /* Дозволяємо перенесення тексту */
+        word-break: break-word; /* Перенесення довгих слів */
+        padding: 0.8rem 0.6rem;
+    }
+    
+    .admin-table th:last-child,
+    .admin-table td:last-child {
+        min-width: 140px;
+    }
+    
+    .table-actions {
+        flex-direction: column;
+        gap: 0.3rem;
+    }
+    
+    .table-actions .btn {
+        width: 100%;
+        padding: 0.4rem;
+    }
+    
+    /* Форми */
+    .form-row {
+        flex-direction: column;
+        gap: 1rem;
+    }
+    
+    .admin-form {
+        padding: 1.5rem;
+    }
+    
+    /* Категорії */
+    #categories-content form {
+        flex-direction: column;
+    }
+    
+    #categories-content input[type="text"] {
+        width: 100%;
+    }
+    
+    /* Футер */
+    .footer-content {
+        flex-direction: column;
+        gap: 1.5rem;
+    }
+    
+    .footer-section {
+        text-align: center;
+    }
+    
+    .footer-section h3::after {
+        left: 50%;
+        transform: translateX(-50%);
+    }
+}
+
+/* Додаткова оптимізація для дуже малих екранів (до 480px) */
+@media (max-width: 480px) {
+    /* Хедер */
+    .logo {
+        font-size: 1.5rem;
+    }
+    
+    nav ul li a {
+        padding: 0.3rem 0.6rem;
+        font-size: 0.9rem;
+    }
+    
+    /* Таблиці */
+    .admin-table th,
+    .admin-table td {
+        font-size: 0.9rem;
+        padding: 0.6rem 0.4rem;
+    }
+    
+    /* Кнопки */
+    .btn {
+        padding: 0.6rem 1rem;
+        font-size: 0.9rem;
+    }
+    
+    /* Футер */
+    .social-links {
+        gap: 0.5rem;
+    }
+    
+    .social-icon {
+        width: 35px;
+        height: 35px;
+        font-size: 0.9rem;
+    }
+}
+
+/* Оптимізація для горизонтальної орієнтації на телефонах */
+@media (max-width: 768px) and (orientation: landscape) {
+    .admin-table th,
+    .admin-table td {
+        min-width: 150px;
+    }
+    
+    .table-actions {
+        flex-direction: row;
+        flex-wrap: wrap;
+    }
+}

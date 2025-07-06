@@ -1,0 +1,803 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Arial', sans-serif;
+    transition: all 0.3s ease;
+}
+body {
+    line-height: 1.6;
+    color: #333;
+    background-color: #f5f5f5;
+}
+body.dark-theme {
+    background-color: #121212;
+    color: #e0e0e0;
+}
+
+/* Хедер */
+header {
+    background: linear-gradient(135deg, #0056b3 0%, #003366 100%);
+    color: white;
+    padding: 0.8rem 0;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+.dark-theme header {
+    background: linear-gradient(135deg, #003366 0%, #001a33 100%);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+}
+.container {
+    width: 90%;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+.header-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.logo {
+    font-size: 1.8rem;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+.logo i {
+    color: #ffcc00;
+}
+nav ul {
+    display: flex;
+    list-style: none;
+    align-items: center;
+    gap: 1rem;
+}
+nav ul li a {
+    color: white;
+    text-decoration: none;
+    font-weight: 500;
+    padding: 0.5rem 1rem;
+    border-radius: 5px;
+    transition: all 0.3s;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+nav ul li a:hover {
+    color: #ffcc00;
+    background: rgba(255, 255, 255, 0.1);
+}
+nav ul li a i {
+    font-size: 0.9rem;
+}
+.theme-switcher {
+    background: rgba(255, 255, 255, 0.1);
+    border: none;
+    color: white;
+    cursor: pointer;
+    font-size: 1.2rem;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s;
+}
+.theme-switcher:hover {
+    background: rgba(255, 255, 255, 0.2);
+}
+.profile-btn {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    background: #ffcc00;
+    color: #333;
+    border: none;
+    border-radius: 50px;
+    padding: 0.5rem 1.2rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s;
+}
+.profile-btn:hover {
+    background: #e6b800;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+.login-btn {
+    background: transparent;
+    color: #ffcc00;
+    border: 2px solid #ffcc00;
+    border-radius: 50px;
+    padding: 0.5rem 1.2rem;
+    font-weight: 600;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    transition: all 0.3s;
+}
+.login-btn:hover {
+    background: rgba(255, 204, 0, 0.1);
+}
+.header-actions {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+.profile-container {
+    display: flex;
+    gap: 2rem;
+    margin: 2rem auto;
+    max-width: 1200px;
+    width: 90%;
+}
+/* Ліве меню */
+.profile-sidebar {
+    width: 280px;
+    background: white;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    padding: 1.5rem;
+    align-self: flex-start;
+}
+.dark-theme .profile-sidebar {
+    background: #242424;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+}
+.profile-info {
+    text-align: center;
+    margin-bottom: 1.5rem;
+}
+.profile-avatar {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 5px solid #ffcc00;
+    margin: 0 auto 1rem;
+}
+.profile-avatar-mini {
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-right: 0.5rem;
+    border: 2px solid #ffcc00;
+    background: #fff;
+}
+.profile-name {
+    font-size: 1.3rem;
+    font-weight: bold;
+    color: #0056b3;
+    margin-bottom: 0.3rem;
+}
+.dark-theme .profile-name {
+    color: #4d9eff;
+}
+.profile-email {
+    color: #666;
+    font-size: 0.9rem;
+}
+.dark-theme .profile-email {
+    color: #aaa;
+}
+.profile-menu {
+    list-style: none;
+}
+.profile-menu li {
+    margin-bottom: 0.5rem;
+}
+.profile-menu a {
+    display: flex;
+    align-items: center;
+    padding: 0.8rem 1rem;
+    color: #333;
+    text-decoration: none;
+    border-radius: 5px;
+    transition: all 0.3s;
+}
+.dark-theme .profile-menu a {
+    color: #e0e0e0;
+}
+.profile-menu a i {
+    margin-right: 0.8rem;
+    width: 20px;
+    text-align: center;
+}
+.profile-menu a:hover, .profile-menu a.active {
+    background: rgba(0, 86, 179, 0.1);
+    color: #0056b3;
+}
+.dark-theme .profile-menu a:hover,
+.dark-theme .profile-menu a.active {
+    background: rgba(77, 158, 255, 0.1);
+    color: #4d9eff;
+}
+.profile-menu a.active {
+    font-weight: bold;
+}
+
+/* Основний вміст */
+.profile-content {
+    flex: 1;
+    background: white;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    padding: 2rem;
+}
+.dark-theme .profile-content {
+    background: #242424;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+}
+.profile-header {
+    margin-bottom: 2rem;
+}
+.profile-header h2 {
+    font-size: 1.8rem;
+    color: #0056b3;
+    margin-bottom: 0.5rem;
+    display: flex;
+    align-items: center;
+    gap: 0.8rem;
+}
+.dark-theme .profile-header h2 {
+    color: #4d9eff;
+}
+.profile-header p {
+    color: #666;
+}
+.dark-theme .profile-header p {
+    color: #aaa;
+}
+
+/* Форма редагування */
+.form-group {
+    margin-bottom: 1.5rem;
+}
+.form-group label {
+    display: block;
+    margin-bottom: 0.5rem;
+    font-weight: bold;
+    color: #333;
+}
+.dark-theme .form-group label {
+    color: #e0e0e0;
+}
+.form-control {
+    width: 100%;
+    padding: 0.8rem;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-size: 1rem;
+    transition: border 0.3s;
+}
+.dark-theme .form-control {
+    background: #333;
+    border-color: #444;
+    color: #e0e0e0;
+}
+.form-control:focus {
+    border-color: #0056b3;
+    outline: none;
+}
+.dark-theme .form-control:focus {
+    border-color: #4d9eff;
+}
+.form-row {
+    display: flex;
+    gap: 1.5rem;
+}
+.form-row .form-group {
+    flex: 1;
+}
+.avatar-upload {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+    margin-bottom: 1.5rem;
+}
+.avatar-preview {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 3px solid #ffcc00;
+}
+.upload-btn {
+    position: relative;
+    overflow: hidden;
+    display: inline-block;
+}
+.upload-btn input[type="file"] {
+    position: absolute;
+    left: 0;
+    top: 0;
+    opacity: 0;
+    width: 100%;
+    height: 100%;
+    cursor: pointer;
+}
+
+/* Кнопки */
+.btn {
+    display: inline-block;
+    padding: 0.7rem 1.5rem;
+    border-radius: 5px;
+    font-weight: bold;
+    text-decoration: none;
+    transition: all 0.3s;
+    border: none;
+    cursor: pointer;
+}
+.btn-primary {
+    background: #ffcc00;
+    color: #333;
+}
+.btn-primary:hover {
+    background: #e6b800;
+}
+.btn-secondary {
+    background: #0056b3;
+    color: white;
+}
+.dark-theme .btn-secondary {
+    background: #003366;
+}
+.btn-secondary:hover {
+    background: #004080;
+}
+.dark-theme .btn-secondary:hover {
+    background: #004d99;
+}
+.btn-danger {
+    background: #ff3333;
+    color: white;
+}
+.btn-danger:hover {
+    background: #e60000;
+}
+.btn-sm {
+    padding: 0.4rem 0.8rem;
+    font-size: 0.85rem;
+}
+
+/* Таблиця замовлень */
+.orders-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 1.5rem;
+}
+.orders-table th, .orders-table td {
+    padding: 1rem;
+    text-align: left;
+    border-bottom: 1px solid #eee;
+}
+.dark-theme .orders-table th, 
+.dark-theme .orders-table td {
+    border-bottom: 1px solid #444;
+}
+.orders-table th {
+    background: #0056b3;
+    color: white;
+    font-weight: bold;
+}
+.dark-theme .orders-table th {
+    background: #003366;
+}
+.orders-table tr:hover {
+    background: rgba(0, 86, 179, 0.05);
+}
+.dark-theme .orders-table tr:hover {
+    background: rgba(77, 158, 255, 0.05);
+}
+.status {
+    padding: 0.3rem 0.8rem;
+    border-radius: 20px;
+    font-size: 0.85rem;
+    font-weight: bold;
+    text-transform: capitalize;
+}
+.status-pending {
+    background: #fff3cd;
+    color: #856404;
+}
+.dark-theme .status-pending {
+    background: #3a2e03;
+    color: #ffd351;
+}
+.status-completed {
+    background: #d4edda;
+    color: #155724;
+}
+.dark-theme .status-completed {
+    background: #1a3a21;
+    color: #6bd68b;
+}
+.status-cancelled {
+    background: #f8d7da;
+    color: #721c24;
+}
+.dark-theme .status-cancelled {
+    background: #3a1216;
+    color: #ff6b7d;
+}
+.status-in-progress {
+    background: #cce5ff;
+    color: #004085;
+}
+.dark-theme .status-in-progress {
+    background: #002752;
+    color: #7ab1ff;
+}
+
+/* Список обраних товарів */
+.wishlist {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 1.5rem;
+    margin-top: 1.5rem;
+}
+.wishlist-item {
+    background: white;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    transition: transform 0.3s;
+}
+.dark-theme .wishlist-item {
+    background: #2a2a2a;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.3);
+}
+.wishlist-item:hover {
+    transform: translateY(-5px);
+}
+.wishlist-img {
+    height: 180px;
+    background-size: cover;
+    background-position: center;
+}
+.wishlist-info {
+    padding: 1rem;
+}
+.wishlist-info h4 {
+    margin-bottom: 0.5rem;
+    color: #0056b3;
+}
+.dark-theme .wishlist-info h4 {
+    color: #4d9eff;
+}
+.wishlist-price {
+    font-weight: bold;
+    color: #333;
+    margin-bottom: 0.8rem;
+}
+.dark-theme .wishlist-price {
+    color: #e0e0e0;
+}
+.wishlist-actions {
+    display: flex;
+    justify-content: space-between;
+}
+
+/* Сповіщення */
+.notifications-list {
+    margin-top: 1.5rem;
+}
+.notification {
+    padding: 1rem;
+    border-bottom: 1px solid #eee;
+    display: flex;
+    gap: 1rem;
+}
+.dark-theme .notification {
+    border-bottom-color: #444;
+}
+.notification-icon {
+    font-size: 1.2rem;
+    color: #0056b3;
+}
+.dark-theme .notification-icon {
+    color: #4d9eff;
+}
+.notification-content {
+    flex: 1;
+}
+.notification-title {
+    font-weight: bold;
+    margin-bottom: 0.3rem;
+}
+.notification-time {
+    font-size: 0.85rem;
+    color: #666;
+}
+.dark-theme .notification-time {
+    color: #aaa;
+}
+
+/* Футер */
+footer {
+    background: #2c3e50;
+    color: white;
+    padding: 3rem 0 1rem;
+    text-align: center;
+    font-size: 0.95rem;
+}
+.dark-theme footer {
+    background: #1a1a1a;
+}
+.footer-content {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 2rem;
+    margin-bottom: 2rem;
+}
+.footer-section {
+    flex: 1;
+    min-width: 200px;
+    margin-bottom: 1.5rem;
+    text-align: left;
+}
+.footer-section h3 {
+    margin-bottom: 1.5rem;
+    font-size: 1.2rem;
+    color: #ffcc00;
+    position: relative;
+    padding-bottom: 0.5rem;
+}
+.footer-section h3::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 50px;
+    height: 2px;
+    background: #ffcc00;
+}
+.footer-section p, .footer-section li {
+    margin-bottom: 0.8rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+.footer-section i.fas, .footer-section i.far {
+    width: 20px;
+    color: #ffcc00;
+}
+.footer-section ul {
+    list-style: none;
+    padding: 0;
+}
+.footer-section ul li a {
+    color: #ddd;
+    text-decoration: none;
+    transition: color 0.3s;
+}
+.footer-section ul li a:hover {
+    color: #ffcc00;
+}
+.social-links {
+    display: flex;
+    gap: 1rem;
+    margin: 1.5rem 0;
+    justify-content: center;
+}
+.social-icon {
+    color: white;
+    background: #3a3a3a;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s;
+}
+.social-icon:hover {
+    transform: translateY(-3px);
+    color: white;
+}
+.social-icon:nth-child(1):hover { background: #E1306C; } /* Instagram */
+.social-icon:nth-child(2):hover { background: #3b5998; } /* Facebook */
+.social-icon:nth-child(3):hover { background: #ff0000; } /* YouTube */
+.social-icon:nth-child(4):hover { background: #000000; } /* TikTok */
+.copyright {
+    margin-top: 2rem;
+    padding-top: 1.5rem;
+    border-top: 1px solid rgba(255,255,255,0.1);
+    font-size: 0.9rem;
+    color: #aaa;
+}
+
+/* Приховані розділи */
+.content-section {
+    display: none;
+}
+.content-section.active {
+    display: block;
+}
+.profile-dropdown {
+    position: relative;
+    display: inline-block;
+}
+.profile-dropdown-menu {
+    display: none;
+    position: absolute;
+    right: 0;
+    top: 110%;
+    background: #fff;
+    min-width: 180px;
+    box-shadow: 0 8px 24px rgba(0,0,0,0.15);
+    border-radius: 8px;
+    z-index: 1000;
+    padding: 0.5rem 0;
+}
+.profile-dropdown-menu a,
+.profile-dropdown-menu button.logout-btn {
+    display: flex;
+    align-items: center;
+    gap: 0.7rem;
+    padding: 0.7rem 1.2rem;
+    color: #333;
+    background: none;
+    border: none;
+    width: 100%;
+    text-align: left;
+    font-size: 1rem;
+    cursor: pointer;
+    text-decoration: none;
+    transition: background 0.2s;
+}
+.profile-dropdown-menu a:hover,
+.profile-dropdown-menu button.logout-btn:hover {
+    background: #f5f5f5;
+}
+.profile-dropdown.open .profile-dropdown-menu {
+    display: block;
+}
+
+.dark-theme .profile-dropdown-menu {
+    background: #1e1e1e;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.6);
+}
+
+.dark-theme .profile-dropdown-menu a,
+.dark-theme .profile-dropdown-menu button.logout-btn {
+    color: #e0e0e0;
+}
+
+.dark-theme .profile-dropdown-menu a:hover,
+.dark-theme .profile-dropdown-menu button.logout-btn:hover {
+    background: #2c2c2c;
+}
+
+
+/* Мобільна адаптація (до 768px) */
+@media (max-width: 768px) {
+    /* Хедер */
+    .header-content {
+        flex-direction: column;
+        gap: 1rem;
+        padding: 0.5rem 0;
+    }
+    
+    nav ul {
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 0.5rem;
+    }
+    
+    .header-actions {
+        margin-top: 0.5rem;
+        width: 100%;
+        justify-content: center;
+    }
+    
+    /* Профільний контейнер */
+    .profile-container {
+        flex-direction: column;
+        gap: 1.5rem;
+    }
+    
+    .profile-sidebar {
+        width: 100%;
+        order: 2; /* Переміщуємо в кінець на мобільних */
+    }
+    
+    .profile-content {
+        order: 1; /* Переміщуємо на початок */
+    }
+    
+    /* Форми */
+    .form-row {
+        flex-direction: column;
+        gap: 1rem;
+    }
+    
+    /* Таблиці */
+    .orders-table {
+        display: block;
+        overflow-x: auto;
+        white-space: nowrap;
+    }
+    
+    /* Списки */
+    .wishlist {
+        grid-template-columns: 1fr;
+    }
+    
+    /* Футер */
+    .footer-content {
+        flex-direction: column;
+        gap: 1.5rem;
+    }
+    
+    .footer-section {
+        text-align: center;
+    }
+    
+    .footer-section h3::after {
+        left: 50%;
+        transform: translateX(-50%);
+    }
+}
+
+/* Додаткова оптимізація для дуже малих екранів (до 480px) */
+@media (max-width: 480px) {
+    /* Хедер */
+    .logo {
+        font-size: 1.5rem;
+    }
+    
+    nav ul li a {
+        padding: 0.3rem 0.6rem;
+        font-size: 0.9rem;
+    }
+    
+    /* Профіль */
+    .profile-avatar {
+        width: 80px;
+        height: 80px;
+    }
+    
+    .profile-content {
+        padding: 1rem;
+    }
+    
+    .profile-header h2 {
+        font-size: 1.5rem;
+    }
+    
+    /* Кнопки */
+    .btn {
+        padding: 0.6rem 1rem;
+        font-size: 0.9rem;
+    }
+    
+    /* Футер */
+    .social-links {
+        gap: 0.5rem;
+    }
+    
+    .social-icon {
+        width: 35px;
+        height: 35px;
+        font-size: 0.9rem;
+    }
+}
+
+/* Оптимізація для горизонтальної орієнтації на телефонах */
+@media (max-width: 768px) and (orientation: landscape) {
+    .profile-container {
+        flex-direction: row;
+    }
+    
+    .profile-sidebar {
+        width: 250px;
+    }
+}
